@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4dabc64570e440c287023beba44c2ca7" Name="Diagram1">
+        <EntityTypeShape EntityType="TattooDBModel.Artist" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TattooDBModel.Customer" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TattooDBModel.Element" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TattooDBModel.Ink" Width="1.5" PointX="8.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TattooDBModel.InkType" Width="1.5" PointX="6" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TattooDBModel.Place" Width="1.5" PointX="6" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TattooDBModel.Record" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TattooDBModel.Review" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="TattooDBModel.Style" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TattooDBModel.Tattoo" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="TattooDBModel.FK__Artist__style_id__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="TattooDBModel.FK__Record__artist_i__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="TattooDBModel.FK__Tattoo__artist_i__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="TattooDBModel.FK__Record__customer__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="TattooDBModel.FK__Element__ink_id__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="TattooDBModel.FK__Element__tattoo__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="TattooDBModel.FK__Ink__inkType_id__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="TattooDBModel.FK__Tattoo__place_id__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="TattooDBModel.FK__Review__record_i__5070F446" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
