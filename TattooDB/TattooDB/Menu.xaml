@@ -14,6 +14,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         
         <Grid.RowDefinitions>
@@ -23,7 +24,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="Black" Offset="0.0"/>
@@ -34,9 +35,11 @@
                    FontFamily="Unispace" Foreground="Azure" Padding="10"/>
         </Border>
         <Button Click="BtnArtist_OnClick" Grid.Row="1" Grid.Column="0" Margin="15" Content="Artist" FontSize="50" FontFamily="Book Antiqua"  />
-        <Button Grid.Row="1" Grid.Column="1" Margin="15" Content="Customer" FontSize="50" FontFamily="Book Antiqua"  />
-        <Button Grid.Row="2" Grid.Column="0" Margin="15" Content="Record" FontSize="50" FontFamily="Book Antiqua"  />
-        <Button Grid.Row="2" Grid.Column="1" Margin="15" Content="Query" FontSize="50" FontFamily="Book Antiqua"  />
-        <Button Click="ButnExit_OnClick" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Width="500" Margin="15" Content="Exit" HorizontalAlignment="Center" FontSize="50" FontFamily="Book Antiqua"  />
+        <Button Click="BtnCustomer" Grid.Row="1" Grid.Column="1" Margin="15" Content="Customer" FontSize="50" FontFamily="Book Antiqua"  />
+        <Button Click="BtnTattoo" Grid.Row="2" Grid.Column="0" Margin="15" Content="Tattoo" FontSize="50" FontFamily="Book Antiqua"  />
+        <Button Click="BtnInk" Grid.Row="1" Grid.Column="2" Margin="15" Content="Ink" FontSize="50" FontFamily="Book Antiqua"  />
+        <Button Click="BtnQuery_OnClick" Grid.Row="2" Grid.Column="1" Margin="15" Content="Query" FontSize="50" FontFamily="Book Antiqua"  />
+        <Button Click="BtnFilter_OnClick" Grid.Row="2" Grid.Column="2" Margin="15" Content="Filter" FontSize="50" FontFamily="Book Antiqua"  />
+        <Button Click="ButnExit_OnClick" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Width="500" Margin="100,0,0,0" Content="Exit" HorizontalAlignment="Center" FontSize="50" FontFamily="Book Antiqua"  />
     </Grid>
 </Page>

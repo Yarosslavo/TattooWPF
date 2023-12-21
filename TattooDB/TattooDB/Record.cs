@@ -14,13 +14,14 @@ namespace TattooDB
         
         public int record_id { get; set; }
         public string appointment { get; set; }
-        public Nullable<int> artist_id { get; set; }
+        public Nullable<int> tattoo_id { get; set; }
         public Nullable<int> customer_id { get; set; }
         
         public virtual Customer Customer { get; set; }
-        public virtual Artist Artist { get; set; }
+        public virtual Tattoo Tattoo { get; set; }
         
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Review> Review { get; set; }
     }
+
 }

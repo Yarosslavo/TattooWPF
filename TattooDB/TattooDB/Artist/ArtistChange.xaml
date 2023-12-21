@@ -1,0 +1,40 @@
+<Window x:Class="TattooDB.ArtistChange"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TattooDB"
+        mc:Ignorable="d"
+        Title="ArtiastChange" Height="400" Width="450" Background="DarkGray" ResizeMode="NoResize">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0" Content="Appointment" FontSize="30" FontFamily="Book Antiqua" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Artist" FontSize="30" FontFamily="Book Antiqua" /> 
+        
+        
+        <TextBox Grid.Row="0" Grid.Column="1" Height="35" x:Name="AppOutput" VerticalContentAlignment="Center" FontSize="25" FontFamily="Book Antiqua" />
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <ComboBox x:Name="ArtistList" FontSize="25" FontFamily="Book Antiqua" />
+        </StackPanel>
+       
+        <Label Grid.Column="0" Grid.Row="2" Content="Customer" FontSize="30" FontFamily="Book Antiqua" ></Label>
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <ComboBox x:Name="CustomerList" FontSize="25" FontFamily="Book Antiqua" />
+        </StackPanel>
+        
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="btnConfirm" Height="40" Content="Confirm" Margin="0,0,0,0" FontSize="30" FontFamily="Book Antiqua"></Button>
+        
+    </Grid>
+</Window>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TattooDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище TattoDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Artist">
           <Key>
             <PropertyRef Name="artist_id" />
@@ -33,7 +33,7 @@
           </Key>
           <Property Name="element_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ink_id" Type="int" />
-          <Property Name="tattoo_id" Type="int" />
+          <Property Name="tattoo" Type="int" />
         </EntityType>
         <EntityType Name="Ink">
           <Key>
@@ -65,7 +65,7 @@
           </Key>
           <Property Name="record_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="appointment" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="artist_id" Type="int" />
+          <Property Name="tattoo_id" Type="int" />
           <Property Name="customer_id" Type="int" />
         </EntityType>
         <EntityType Name="Review">
@@ -133,7 +133,7 @@
               <PropertyRef Name="tattoo_id" />
             </Principal>
             <Dependent Role="Element">
-              <PropertyRef Name="tattoo_id" />
+              <PropertyRef Name="tattoo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -149,20 +149,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Record__artist_i__4CA06362">
-          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Record" Type="Self.Record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Artist">
-              <PropertyRef Name="artist_id" />
-            </Principal>
-            <Dependent Role="Record">
-              <PropertyRef Name="artist_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Record__customer__4D94879B">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Record" Type="Self.Record" Multiplicity="*" />
@@ -172,6 +158,20 @@
             </Principal>
             <Dependent Role="Record">
               <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Record__tattoo_i__4CA06362">
+          <End Role="Tattoo" Type="Self.Tattoo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Record" Type="Self.Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tattoo">
+              <PropertyRef Name="tattoo_id" />
+            </Principal>
+            <Dependent Role="Record">
+              <PropertyRef Name="tattoo_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -215,7 +215,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище TattooDBModelContainer">
+        <EntityContainer Name="Хранилище TattoDBModelContainer">
           <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Element" EntityType="Self.Element" Schema="dbo" store:Type="Tables" />
@@ -242,12 +242,12 @@
             <End Role="InkType" EntitySet="InkType" />
             <End Role="Ink" EntitySet="Ink" />
           </AssociationSet>
-          <AssociationSet Name="FK__Record__artist_i__4CA06362" Association="Self.FK__Record__artist_i__4CA06362">
-            <End Role="Artist" EntitySet="Artist" />
-            <End Role="Record" EntitySet="Record" />
-          </AssociationSet>
           <AssociationSet Name="FK__Record__customer__4D94879B" Association="Self.FK__Record__customer__4D94879B">
             <End Role="Customer" EntitySet="Customer" />
+            <End Role="Record" EntitySet="Record" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Record__tattoo_i__4CA06362" Association="Self.FK__Record__tattoo_i__4CA06362">
+            <End Role="Tattoo" EntitySet="Tattoo" />
             <End Role="Record" EntitySet="Record" />
           </AssociationSet>
           <AssociationSet Name="FK__Review__record_i__5070F446" Association="Self.FK__Review__record_i__5070F446">
@@ -267,7 +267,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TattooDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TattoDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Artist">
           <Key>
             <PropertyRef Name="artist_id" />
@@ -278,7 +278,6 @@
           <Property Name="style_id" Type="Int32" />
           <Property Name="expirience" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Style" Relationship="Self.FK__Artist__style_id__398D8EEE" FromRole="Artist" ToRole="Style" />
-          <NavigationProperty Name="Record" Relationship="Self.FK__Record__artist_i__4CA06362" FromRole="Artist" ToRole="Record" />
           <NavigationProperty Name="Tattoo" Relationship="Self.FK__Tattoo__artist_i__412EB0B6" FromRole="Artist" ToRole="Tattoo" />
         </EntityType>
         <EntityType Name="Customer">
@@ -300,9 +299,9 @@
           </Key>
           <Property Name="element_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ink_id" Type="Int32" />
-          <Property Name="tattoo_id" Type="Int32" />
+          <Property Name="tattoo" Type="Int32" />
           <NavigationProperty Name="Ink" Relationship="Self.FK__Element__ink_id__48CFD27E" FromRole="Element" ToRole="Ink" />
-          <NavigationProperty Name="Tattoo" Relationship="Self.FK__Element__tattoo__49C3F6B7" FromRole="Element" ToRole="Tattoo" />
+          <NavigationProperty Name="Tattoo1" Relationship="Self.FK__Element__tattoo__49C3F6B7" FromRole="Element" ToRole="Tattoo" />
         </EntityType>
         <EntityType Name="Ink">
           <Key>
@@ -338,10 +337,10 @@
           </Key>
           <Property Name="record_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="appointment" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="artist_id" Type="Int32" />
+          <Property Name="tattoo_id" Type="Int32" />
           <Property Name="customer_id" Type="Int32" />
-          <NavigationProperty Name="Artist" Relationship="Self.FK__Record__artist_i__4CA06362" FromRole="Record" ToRole="Artist" />
           <NavigationProperty Name="Customer" Relationship="Self.FK__Record__customer__4D94879B" FromRole="Record" ToRole="Customer" />
+          <NavigationProperty Name="Tattoo" Relationship="Self.FK__Record__tattoo_i__4CA06362" FromRole="Record" ToRole="Tattoo" />
           <NavigationProperty Name="Review" Relationship="Self.FK__Review__record_i__5070F446" FromRole="Record" ToRole="Review" />
         </EntityType>
         <EntityType Name="Review">
@@ -375,6 +374,7 @@
           <NavigationProperty Name="Artist" Relationship="Self.FK__Tattoo__artist_i__412EB0B6" FromRole="Tattoo" ToRole="Artist" />
           <NavigationProperty Name="Element" Relationship="Self.FK__Element__tattoo__49C3F6B7" FromRole="Tattoo" ToRole="Element" />
           <NavigationProperty Name="Place" Relationship="Self.FK__Tattoo__place_id__403A8C7D" FromRole="Tattoo" ToRole="Place" />
+          <NavigationProperty Name="Record" Relationship="Self.FK__Record__tattoo_i__4CA06362" FromRole="Tattoo" ToRole="Record" />
         </EntityType>
         <Association Name="FK__Artist__style_id__398D8EEE">
           <End Role="Style" Type="Self.Style" Multiplicity="0..1">
@@ -387,20 +387,6 @@
             </Principal>
             <Dependent Role="Artist">
               <PropertyRef Name="style_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Record__artist_i__4CA06362">
-          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Record" Type="Self.Record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Artist">
-              <PropertyRef Name="artist_id" />
-            </Principal>
-            <Dependent Role="Record">
-              <PropertyRef Name="artist_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -454,7 +440,7 @@
               <PropertyRef Name="tattoo_id" />
             </Principal>
             <Dependent Role="Element">
-              <PropertyRef Name="tattoo_id" />
+              <PropertyRef Name="tattoo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -482,6 +468,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Record__tattoo_i__4CA06362">
+          <End Role="Tattoo" Type="Self.Tattoo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Record" Type="Self.Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tattoo">
+              <PropertyRef Name="tattoo_id" />
+            </Principal>
+            <Dependent Role="Record">
+              <PropertyRef Name="tattoo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Review__record_i__5070F446">
           <End Role="Record" Type="Self.Record" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -496,7 +496,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TattooDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TattoDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Artist" EntityType="Self.Artist" />
           <EntitySet Name="Customer" EntityType="Self.Customer" />
           <EntitySet Name="Element" EntityType="Self.Element" />
@@ -510,10 +510,6 @@
           <AssociationSet Name="FK__Artist__style_id__398D8EEE" Association="Self.FK__Artist__style_id__398D8EEE">
             <End Role="Style" EntitySet="Style" />
             <End Role="Artist" EntitySet="Artist" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Record__artist_i__4CA06362" Association="Self.FK__Record__artist_i__4CA06362">
-            <End Role="Artist" EntitySet="Artist" />
-            <End Role="Record" EntitySet="Record" />
           </AssociationSet>
           <AssociationSet Name="FK__Tattoo__artist_i__412EB0B6" Association="Self.FK__Tattoo__artist_i__412EB0B6">
             <End Role="Artist" EntitySet="Artist" />
@@ -539,6 +535,10 @@
             <End Role="Place" EntitySet="Place" />
             <End Role="Tattoo" EntitySet="Tattoo" />
           </AssociationSet>
+          <AssociationSet Name="FK__Record__tattoo_i__4CA06362" Association="Self.FK__Record__tattoo_i__4CA06362">
+            <End Role="Tattoo" EntitySet="Tattoo" />
+            <End Role="Record" EntitySet="Record" />
+          </AssociationSet>
           <AssociationSet Name="FK__Review__record_i__5070F446" Association="Self.FK__Review__record_i__5070F446">
             <End Role="Record" EntitySet="Record" />
             <End Role="Review" EntitySet="Review" />
@@ -549,9 +549,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище TattooDBModelContainer" CdmEntityContainer="TattooDBEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TattoDBModelContainer" CdmEntityContainer="TattoDBEntities1">
           <EntitySetMapping Name="Artist">
-            <EntityTypeMapping TypeName="TattooDBModel.Artist">
+            <EntityTypeMapping TypeName="TattoDBModel.Artist">
               <MappingFragment StoreEntitySet="Artist">
                 <ScalarProperty Name="artist_id" ColumnName="artist_id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
@@ -562,7 +562,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customer">
-            <EntityTypeMapping TypeName="TattooDBModel.Customer">
+            <EntityTypeMapping TypeName="TattoDBModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
                 <ScalarProperty Name="customer_id" ColumnName="customer_id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
@@ -575,16 +575,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Element">
-            <EntityTypeMapping TypeName="TattooDBModel.Element">
+            <EntityTypeMapping TypeName="TattoDBModel.Element">
               <MappingFragment StoreEntitySet="Element">
                 <ScalarProperty Name="element_id" ColumnName="element_id" />
                 <ScalarProperty Name="ink_id" ColumnName="ink_id" />
-                <ScalarProperty Name="tattoo_id" ColumnName="tattoo_id" />
+                <ScalarProperty Name="tattoo" ColumnName="tattoo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ink">
-            <EntityTypeMapping TypeName="TattooDBModel.Ink">
+            <EntityTypeMapping TypeName="TattoDBModel.Ink">
               <MappingFragment StoreEntitySet="Ink">
                 <ScalarProperty Name="ink_id" ColumnName="ink_id" />
                 <ScalarProperty Name="inkType_id" ColumnName="inkType_id" />
@@ -595,7 +595,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="InkType">
-            <EntityTypeMapping TypeName="TattooDBModel.InkType">
+            <EntityTypeMapping TypeName="TattoDBModel.InkType">
               <MappingFragment StoreEntitySet="InkType">
                 <ScalarProperty Name="inkType_id" ColumnName="inkType_id" />
                 <ScalarProperty Name="title" ColumnName="title" />
@@ -603,7 +603,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Place">
-            <EntityTypeMapping TypeName="TattooDBModel.Place">
+            <EntityTypeMapping TypeName="TattoDBModel.Place">
               <MappingFragment StoreEntitySet="Place">
                 <ScalarProperty Name="place_id" ColumnName="place_id" />
                 <ScalarProperty Name="title" ColumnName="title" />
@@ -611,17 +611,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Record">
-            <EntityTypeMapping TypeName="TattooDBModel.Record">
+            <EntityTypeMapping TypeName="TattoDBModel.Record">
               <MappingFragment StoreEntitySet="Record">
                 <ScalarProperty Name="record_id" ColumnName="record_id" />
                 <ScalarProperty Name="appointment" ColumnName="appointment" />
-                <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+                <ScalarProperty Name="tattoo_id" ColumnName="tattoo_id" />
                 <ScalarProperty Name="customer_id" ColumnName="customer_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Review">
-            <EntityTypeMapping TypeName="TattooDBModel.Review">
+            <EntityTypeMapping TypeName="TattoDBModel.Review">
               <MappingFragment StoreEntitySet="Review">
                 <ScalarProperty Name="review_id" ColumnName="review_id" />
                 <ScalarProperty Name="textReview" ColumnName="textReview" />
@@ -631,7 +631,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Style">
-            <EntityTypeMapping TypeName="TattooDBModel.Style">
+            <EntityTypeMapping TypeName="TattoDBModel.Style">
               <MappingFragment StoreEntitySet="Style">
                 <ScalarProperty Name="style_id" ColumnName="style_id" />
                 <ScalarProperty Name="title" ColumnName="title" />
@@ -639,7 +639,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tattoo">
-            <EntityTypeMapping TypeName="TattooDBModel.Tattoo">
+            <EntityTypeMapping TypeName="TattoDBModel.Tattoo">
               <MappingFragment StoreEntitySet="Tattoo">
                 <ScalarProperty Name="tattoo_id" ColumnName="tattoo_id" />
                 <ScalarProperty Name="size" ColumnName="size" />

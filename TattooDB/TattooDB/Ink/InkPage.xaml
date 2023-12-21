@@ -1,0 +1,36 @@
+<Page x:Class="TattooDB.InkPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:TattooDB"
+      mc:Ignorable="d"
+      Title="InkPage" Height="450" Width="800" Background="DarkGray" Margin="15">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="90" />
+        </Grid.RowDefinitions>
+        
+        <DataGrid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="InkGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="150" Header="Type" FontSize="15" Binding="{Binding InkType.title}" />
+                <DataGridTextColumn Width="*" Header="Color" FontSize="15" Binding="{Binding color }" />
+                <DataGridTextColumn Width="*" Header="Price" FontSize="15" Binding="{Binding price}"  />
+                <DataGridTextColumn Width="*" Header="Aviability" FontSize="15" Binding="{Binding aviability}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button Grid.Row="1" Grid.Column="0" Width="200"  Click="btnAdd" Content="Add" />
+        <Button Grid.Row="1" Grid.Column="1" Width="200" Click="btnDelete" Content="Delete"/>
+        <Button Grid.Row="1" Grid.Column="2" Width="200" Click="btnChange" Content="Change"/>
+        <Button Grid.Row="2" Grid.Column="2" Width="100" Height="50" Margin="0,10,0,20" Click="btnBack" Content="🠔" FontSize="50" />
+    </Grid>
+</Page>

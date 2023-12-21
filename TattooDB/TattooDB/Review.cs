@@ -14,4 +14,5 @@ namespace TattooDB
         
         public virtual Record Record { get; set; }
     }
+
 }

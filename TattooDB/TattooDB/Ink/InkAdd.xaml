@@ -1,0 +1,41 @@
+<Window x:Class="TattooDB.InkAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TattooDB"
+        mc:Ignorable="d"
+        Title="InkAdd" Height="300" Width="450" Background="DarkGray">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0" Content="Type" FontSize="30" FontFamily="Book Antiqua" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Color" FontSize="30" FontFamily="Book Antiqua" /> 
+        <Label Grid.Row="2" Grid.Column="0" Content="Price" FontSize="30" FontFamily="Book Antiqua" /> 
+        <Label Grid.Row="3" Grid.Column="0" Content="Aviability" FontSize="30" FontFamily="Book Antiqua" /> 
+        
+        <TextBox Grid.Row="1" Grid.Column="1" Height="35" x:Name="ColorOutput" VerticalContentAlignment="Center" FontSize="25" FontFamily="Book Antiqua" />
+        <TextBox Grid.Row="2" Grid.Column="1" Height="35" x:Name="PriceOutput" VerticalContentAlignment="Center" FontSize="25" FontFamily="Book Antiqua" />
+        
+      
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <ComboBox x:Name="TypeList" FontSize="25" FontFamily="Book Antiqua" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <ComboBox x:Name="AvList" FontSize="25" FontFamily="Book Antiqua" />
+        </StackPanel>
+        
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="btnConfirm" Height="40" Content="Confirm" Margin="0,0,0,0" FontSize="30" FontFamily="Book Antiqua"></Button>
+       </Grid > 
+</Window>

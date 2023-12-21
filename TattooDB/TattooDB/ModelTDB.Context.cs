@@ -13,24 +13,24 @@ namespace TattooDB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TattooDBEntities : DbContext
+    public partial class TattoDBEntities1 : DbContext
     {
-        private static TattooDBEntities content; 
-        public TattooDBEntities()
-            : base("name=TattooDBEntities")
+        private static TattoDBEntities1 content;
+        public TattoDBEntities1()
+            : base("name=TattoDBEntities1")
         {
         }
 
-        public static TattooDBEntities GetContent()
+        public static TattoDBEntities1 GetContent()
         {
             if (content == null)
-                content = new TattooDBEntities();
+                content = new TattoDBEntities1();
             return content;
         }
 
-        public static TattooDBEntities Reload()
+        public static TattoDBEntities1 Reload()
         {
-            content = new TattooDBEntities();
+            content = new TattoDBEntities1();
             return content;
         }
     

@@ -1,0 +1,54 @@
+<Page x:Class="TattooDB.ArtistPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:TattooDB"
+      mc:Ignorable="d"
+      Title="ArtistPage" Background="DarkGray">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50" />  
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition  Height="50"/>
+            <RowDefinition Height="170" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="1" Content="Name" FontSize="25" FontFamily="Book Antiqua" />
+        <Label Grid.Row="2" Grid.Column="1" Content="Surname" FontSize="25" FontFamily="Book Antiqua" />
+        <Label Grid.Row="3" Grid.Column="1" Content="Style" FontSize="25" FontFamily="Book Antiqua" />
+        <Label Grid.Row="4" Grid.Column="1" Content="Expirience" FontSize="25" FontFamily="Book Antiqua" />
+        
+        <TextBox Grid.Row="1" Grid.Column="2" x:Name="NameOutput" VerticalContentAlignment="Center" FontSize="25"  IsReadOnly="True"/>
+        <TextBox Grid.Row="2" Grid.Column="2" x:Name="SurnameOutput" VerticalContentAlignment="Center" FontSize="25" IsReadOnly="True"/>
+        <TextBox Grid.Row="3" Grid.Column="2" x:Name="StyleOutput" VerticalContentAlignment="Center" FontSize="25" IsReadOnly="True"/>
+        <TextBox Grid.Row="4" Grid.Column="2" x:Name="ExpirienceOutput" VerticalContentAlignment="Center" FontSize="25" IsReadOnly="True"/>
+        
+        <Button Grid.Row="5" Grid.Column="2" Click="btnNext" Width="50" Height="30" HorizontalAlignment="Left" Margin="5,10,0,0" Content="❯" FontSize="20" /> 
+        <Button Grid.Row="5" Grid.Column="1" Click="btnPrev" Width="50" Height="30" HorizontalAlignment="Right" Margin="0,10,5,0" Content="❮" FontSize="20" />
+        <Button Grid.Row="1" Grid.Column="0" Click="btnAdd"  Width="80" Height="30" Margin="0,0,15,0" Content="Add" FontSize="20" FontFamily="Book Antiqua"/>
+         <Button Grid.Row="2" Grid.Column="0" Click="btnDelete"  Width="80" Height="30" Margin="0,0,15,0" Content="Delete" FontSize="20" FontFamily="Book Antiqua"/> 
+        <Button Grid.Row="3" Grid.Column="0" Click="btnChange"   Width="80" Height="30" Margin="0,0,15,0" Content="Change" FontSize="20" FontFamily="Book Antiqua"/>
+        <Button Grid.Row="7" Grid.Column="2" Width="100" Height="50" Margin="0,5,0,0" Click="btnBack" Content="🠔" FontSize="50" />
+        
+        
+        <DataGrid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,15,0,0" x:Name="RlGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="150" Header="Appointment" FontSize="15" Binding="{Binding appointment}" />
+                <DataGridTextColumn Width="*" Header="Artist" FontSize="15" Binding="{Binding Artist.firstName }" />
+                <DataGridTextColumn Width="*" Header="Customer" FontSize="15" Binding="{Binding Customer.firstName}"  />
+                
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

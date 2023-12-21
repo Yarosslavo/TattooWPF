@@ -10,6 +10,7 @@ namespace TattooDB
         public Tattoo()
         {
             this.Element = new HashSet<Element>();
+            this.Record = new HashSet<Record>();
         }
         
         public int tattoo_id { get; set; }
@@ -24,5 +25,9 @@ namespace TattooDB
         
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Element> Element { get; set; }
+        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Record> Record { get; set; }
     }
+
 }

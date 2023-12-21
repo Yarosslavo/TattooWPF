@@ -1,0 +1,38 @@
+<Page x:Class="TattooDB.CustomerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:TattooDB"
+      mc:Ignorable="d"
+      Title="CustomerPage" Height="450" Width="800" Background="DarkGray" Margin="15">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="90" />
+        </Grid.RowDefinitions>
+        
+        <DataGrid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="CustomerGrid" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid.Columns>
+            <DataGridTextColumn Width="150" Header="Name" FontSize="15" Binding="{Binding firstName}" />
+            <DataGridTextColumn Width="*" Header="Surname" FontSize="15" Binding="{Binding lastName }" />
+            <DataGridTextColumn Width="*" Header="Email" FontSize="15" Binding="{Binding email}"  />
+            <DataGridTextColumn Width="*" Header="Phone" FontSize="15" Binding="{Binding phone}" />
+            <DataGridTextColumn Width="*" Header="Age" FontSize="15" Binding="{Binding age}" />
+            <DataGridTextColumn Width="*" Header="Med" FontSize="15" Binding="{Binding medCertifivate}" />
+        </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button Grid.Row="1" Grid.Column="0" Width="200"  Click="btnAdd" Content="Add" />
+        <Button Grid.Row="1" Grid.Column="1" Width="200" Click="btnDelete" Content="Delete"/>
+        <Button Grid.Row="1" Grid.Column="2" Width="200" Click="btnChange" Content="Change"/>
+        <Button Grid.Row="2" Grid.Column="2" Width="100" Height="50" Margin="0,10,0,20" Click="btnBack" Content="🠔" FontSize="50" />
+    </Grid>
+</Page>

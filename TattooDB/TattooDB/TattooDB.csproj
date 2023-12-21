@@ -60,57 +60,105 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Artist.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ArtistPage.xaml.cs">
+    <Compile Include="Artist\ArtistAdd.xaml.cs">
+      <DependentUpon>ArtistAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Artist\ArtistChange.xaml.cs">
+      <DependentUpon>ArtistChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Artist\ArtistPage.xaml.cs">
       <DependentUpon>ArtistPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerAdd.xaml.cs">
+      <DependentUpon>CustomerAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerChange.xaml.cs">
+      <DependentUpon>CustomerChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerPage.xaml.cs">
+      <DependentUpon>CustomerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Element.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Filter.xaml.cs">
+      <DependentUpon>Filter.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ink.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="InkType.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ink\InkAdd.xaml.cs">
+      <DependentUpon>InkAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ink\InkChange.xaml.cs">
+      <DependentUpon>InkChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ink\InkPage.xaml.cs">
+      <DependentUpon>InkPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModelTDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelTDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelTDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelTDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelTDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Place.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Query.xaml.cs">
+      <DependentUpon>Query.xaml</DependentUpon>
     </Compile>
     <Compile Include="Record.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Review.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Style.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Tattoo.cs">
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+      <DependentUpon>ModelTDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="TattooModelDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TattooModelDB.Context.tt</DependentUpon>
+    <Compile Include="Tattoo\TattooAdd.xaml.cs">
+      <DependentUpon>TattooAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TattooModelDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TattooModelDB.tt</DependentUpon>
+    <Compile Include="Tattoo\TattooChange.xaml.cs">
+      <DependentUpon>TattooChange.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TattooModelDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TattooModelDB.edmx</DependentUpon>
+    <Compile Include="Tattoo\TattooPage.xaml.cs">
+      <DependentUpon>TattooPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="ArtistPage.xaml" />
+    <Page Include="Artist\ArtistAdd.xaml" />
+    <Page Include="Artist\ArtistChange.xaml" />
+    <Page Include="Artist\ArtistPage.xaml" />
+    <Page Include="Customer\CustomerAdd.xaml" />
+    <Page Include="Customer\CustomerChange.xaml" />
+    <Page Include="Customer\CustomerPage.xaml" />
+    <Page Include="Filter.xaml" />
+    <Page Include="Ink\InkAdd.xaml" />
+    <Page Include="Ink\InkChange.xaml" />
+    <Page Include="Ink\InkPage.xaml" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -124,6 +172,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menu.xaml" />
+    <Page Include="Query.xaml" />
+    <Page Include="Tattoo\TattooAdd.xaml" />
+    <Page Include="Tattoo\TattooChange.xaml" />
+    <Page Include="Tattoo\TattooPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -141,29 +193,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="TattooModelDB.edmx">
+    <EntityDeploy Include="ModelTDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TattooModelDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelTDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="packages.config" />
-    <None Include="TattooModelDB.edmx.diagram">
-      <DependentUpon>TattooModelDB.edmx</DependentUpon>
+    <None Include="ModelTDB.edmx.diagram">
+      <DependentUpon>ModelTDB.edmx</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TattooModelDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TattooModelDB.Context.cs</LastGenOutput>
-      <DependentUpon>TattooModelDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="TattooModelDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TattooModelDB.edmx</DependentUpon>
-      <LastGenOutput>TattooModelDB.cs</LastGenOutput>
-    </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelTDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelTDB.edmx</DependentUpon>
+      <LastGenOutput>ModelTDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelTDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelTDB.edmx</DependentUpon>
+      <LastGenOutput>ModelTDB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

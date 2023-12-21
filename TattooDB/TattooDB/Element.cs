@@ -15,4 +15,5 @@ namespace TattooDB
         public virtual Tattoo Tattoo { get; set; }
         public virtual Ink Ink { get; set; }
     }
+
 }
